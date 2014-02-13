@@ -1,7 +1,7 @@
 <?php
 /**
  * mm_default
- * @version 1.1 (2012-11-13)
+ * @version 1.1.1 (2014-02-13)
  * 
  * @desc A widget for ManagerManager plugin that allows field (or TV) default value for a new document/folder to be set.
  * 
@@ -15,9 +15,9 @@
  * 
  * @event OnDocFormRender
  * 
- * @link http://code.divandesign.biz/modx/mm_default/1.1
+ * @link http://code.divandesign.biz/modx/mm_default/1.1.1
  * 
- * @copyright 2012
+ * @copyright 2014
  */
 
 function mm_default($field, $value = '', $roles = '', $templates = '', $eval = false){
