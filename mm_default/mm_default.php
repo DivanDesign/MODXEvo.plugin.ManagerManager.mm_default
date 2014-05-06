@@ -5,10 +5,10 @@
  * 
  * @desc A widget for ManagerManager plugin that allows field (or TV) default value for a new document/folder to be set.
  * 
- * @uses ManagerManager plugin 0.4.
+ * @uses ManagerManager plugin 0.6.
  * @uses ManagerManager.mm_ddSetFieldValue 1.1.
  * 
- * @param $field {string} - The name of the document field (or TV) this should apply to. @required
+ * @param $fields {comma separated string} - The name(s) of the document fields (or TVs) for which value setting is required. @required
  * @param $value {string} - The default value for the field. The current date/time will be used for the fields equals 'pub_date' or 'unpup_date' with empty value. A static value can be supplied as a string, or PHP code (to calculate something) can be supplied if the eval parameter is set as true. Default: ''.
  * @param $roles {comma separated string} - The roles that the widget is applied to (when this parameter is empty then widget is applied to the all roles). Default: ''.
  * @param $templates {comma separated string} - Id of the templates to which this widget is applied (when this parameter is empty then widget is applied to the all templates). Default: ''.
@@ -21,7 +21,7 @@
  * @copyright 2014
  */
 
-function mm_default($field, $value = '', $roles = '', $templates = '', $eval = false){
+function mm_default($fields, $value = '', $roles = '', $templates = '', $eval = false){
 	global $modx;
 	$e = &$modx->Event;
 	
@@ -43,7 +43,7 @@ function mm_default($field, $value = '', $roles = '', $templates = '', $eval = f
 		
 		$e->output("//---------- mm_default :: Begin -----\n");
 		
-		mm_ddSetFieldValue($field, $value, $roles, $templates);
+		mm_ddSetFieldValue($fields, $value, $roles, $templates);
 		
 		$e->output("//---------- mm_default :: End -----\n");
 	}
