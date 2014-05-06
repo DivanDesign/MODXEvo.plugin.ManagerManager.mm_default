@@ -1,7 +1,7 @@
 <?php
 /**
  * mm_default
- * @version 1.1.1 (2014-02-13)
+ * @version 1.2 (2014-05-06)
  * 
  * @desc A widget for ManagerManager plugin that allows field (or TV) default value for a new document/folder to be set.
  * 
@@ -16,7 +16,7 @@
  * 
  * @event OnDocFormRender
  * 
- * @link http://code.divandesign.biz/modx/mm_default/1.1.1
+ * @link http://code.divandesign.biz/modx/mm_default/1.2
  * 
  * @copyright 2014
  */
@@ -30,16 +30,11 @@ function mm_default($fields, $value = '', $roles = '', $templates = '', $eval = 
 	// 85 =
 	// 4 =
 	// 72 = Create new weblink
-	
-	$allowed_actions = array('85', '4', '72');
-	
-	if (!in_array($modx->manager->action, $allowed_actions)){
-		return;
-	}
+	if (!in_array($modx->manager->action, array('85', '4', '72'))){return;}
 	
 	if ($e->name == 'OnDocFormRender' && useThisRule($roles, $templates)){
 		// What's the new value, and does it include PHP?
-		$value = ($eval) ? eval($value) : $value;
+		if ($eval){$value = eval($value);}
 		
 		$e->output("//---------- mm_default :: Begin -----\n");
 		
