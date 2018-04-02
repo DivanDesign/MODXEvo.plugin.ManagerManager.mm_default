@@ -1,7 +1,7 @@
 <?php
 /**
  * mm_default
- * @version 1.2 (2014-05-06)
+ * @version 1.2.1 (2018-04-03)
  * 
  * @desc A widget for ManagerManager plugin that allows field (or TV) default value for a new document/folder to be set.
  * 
@@ -18,9 +18,9 @@
  * 
  * @event OnDocFormRender
  * 
- * @link http://code.divandesign.biz/modx/mm_default/1.2
+ * @link http://code.divandesign.biz/modx/mm_default/1.2.1
  * 
- * @copyright 2012–2014
+ * @copyright 2012–2018
  */
 
 function mm_default($params){
@@ -66,9 +66,7 @@ function mm_default($params){
 		['85', '4', '72']
 	)){return;}
 	
-	if (
-		$e->name == 'OnDocFormRender'
-	){
+	if ($e->name == 'OnDocFormRender'){
 		// What's the new value, and does it include PHP?
 		if ($params->needToEval){$params->value = eval($params->value);}
 		
