@@ -7,7 +7,7 @@
  * 
  * @uses PHP >= 5.4.
  * @uses MODXEvo.plugins.ManagerManager >= 0.7 {@link http://code.divandesign.biz/modx/managermanager }.
- * @uses MODXEvo.plugins.ManagerManager.mm_ddSetFieldValue >= 1.1 {@link http://code.divandesign.biz/modx/mm_ddsetfieldvalue }.
+ * @uses MODXEvo.plugins.ManagerManager.mm_ddSetFieldValue >= 1.2 {@link http://code.divandesign.biz/modx/mm_ddsetfieldvalue }.
  * 
  * @param $params {array_associative|stdClass} — The object of params. @required
  * @param $params['fields'] {string_commaSeparated} — The name(s) of the document fields (or TVs) for which value setting is required. @required
@@ -74,12 +74,7 @@ function mm_default($params){
 		
 		$output = '//---------- mm_default :: Begin -----'.PHP_EOL;
 		
-		mm_ddSetFieldValue(
-			$params->fields,
-			$params->value,
-			$params->roles,
-			$params->templates
-		);
+		mm_ddSetFieldValue($params);
 		
 		$output .= '//---------- mm_default :: End -----'.PHP_EOL;
 		
